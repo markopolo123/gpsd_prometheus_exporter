@@ -1,0 +1,56 @@
+[[package]]
+name = "argparse"
+version = "1.4.0"
+description = "Python command-line parsing library"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "gps"
+version = "3.19"
+description = "GPSD client"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "gpsd-py3"
+version = "0.3.0"
+description = "Python 3 library for working with gpsd"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "prometheus-client"
+version = "0.9.0"
+description = "Python client for the Prometheus monitoring system."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+twisted = ["twisted"]
+
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.8"
+content-hash = "71ee46810a7e4e479a0237d46effd0ec515b5c1c9a07955852564a71de7865e8"
+
+[metadata.files]
+argparse = [
+    {file = "argparse-1.4.0-py2.py3-none-any.whl", hash = "sha256:c31647edb69fd3d465a847ea3157d37bed1f95f19760b11a47aa91c04b666314"},
+    {file = "argparse-1.4.0.tar.gz", hash = "sha256:62b089a55be1d8949cd2bc7e0df0bddb9e028faefc8c32038cc84862aefdd6e4"},
+]
+gps = [
+    {file = "gps-3.19-py3-none-any.whl", hash = "sha256:19592208592abdf28c8208f68faa9b8fee410543517b4a436f7a44d4b60aff85"},
+    {file = "gps-3.19.tar.gz", hash = "sha256:9e1d2280e4944ddb46cf19772b2768848db91bf8363ad8a72b7996b1c6dd560a"},
+]
+gpsd-py3 = [
+    {file = "gpsd-py3-0.3.0.tar.gz", hash = "sha256:2908d3bd78dfb6720ecfe22f97e139b5a4a198f38df3a77215cf644a33513192"},
+]
+prometheus-client = [
+    {file = "prometheus_client-0.9.0-py2.py3-none-any.whl", hash = "sha256:b08c34c328e1bf5961f0b4352668e6c8f145b4a087e09b7296ef62cbe4693d35"},
+    {file = "prometheus_client-0.9.0.tar.gz", hash = "sha256:9da7b32f02439d8c04f7777021c304ed51d9ec180604700c1ba72a4d44dceb03"},
+]

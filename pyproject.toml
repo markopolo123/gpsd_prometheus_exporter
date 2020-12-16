@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "gpsd_prometheus_exporter"
+version = "0.1.0"
+description = "Monitor GPSD with Prometheus"
+authors = ["Mark S"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+prometheus-client = "^0.9.0"
+gps = "^3.19"
+argparse = "^1.4.0"
+gpsd-py3 = "^0.3.0"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+gpsd-exporter = 'gpsd_prometheus_exporter.main:main'
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
