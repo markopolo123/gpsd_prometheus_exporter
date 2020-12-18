@@ -15,7 +15,7 @@ SAT_COUNT = Gauge("satcount", "Number of satellites")
 def gps_connect():
     gpsd.connect()
     # Get gps position
-    packet = gpsd.get_current()
+    data = gpsd.get_current()
     return data
 
 def get_gpsd_data(packet):
@@ -68,8 +68,7 @@ def str_to_bool(value):
 @click.option(
     "--debug",
     "-d",
-    default="False",
-    type=str_to_bool,
+    is_flag=True,
     help="Turns on more verbose logging, prints output [default: False]",
 )
 def main(bind, port, debug):
@@ -79,8 +78,6 @@ def main(bind, port, debug):
         level=logging.INFO,
         datefmt="%Y-%m-%d %H:%M:%S",
     )
-    if debug:
-        DEBUG = True
     logging.info(f"Listening on http://{bind}:{port}")
     start_http_server(addr=bind, port=port)
 
@@ -88,5 +85,5 @@ def main(bind, port, debug):
         data = gps_connect()
         get_gpsd_data(data)
         time.sleep(1)
-        if DEBUG:
+        if debug:
             logging.info(f"Sensor data: {make_json()}")
