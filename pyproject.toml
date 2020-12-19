@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gpsd_prometheus_exporter"
-version = "0.3.0"
+version = "0.3.1"
 description = "Monitor GPSD with Prometheus"
 authors = ["Mark S"]
 license = "MIT"
