@@ -41,15 +41,6 @@ def make_json():
     sensor_data["satcount"] = SAT_COUNT.collect()[0].samples[0].value
     return sensor_data
 
-
-def str_to_bool(value):
-    if value.lower() in {"false", "f", "0", "no", "n"}:
-        return False
-    elif value.lower() in {"true", "t", "1", "yes", "y"}:
-        return True
-    raise ValueError(f"{value} is not a valid boolean value")
-
-
 @click.command()
 @click.option(
     "--bind",
