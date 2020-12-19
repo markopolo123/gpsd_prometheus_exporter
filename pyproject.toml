@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gpsd_prometheus_exporter"
-version = "0.2.0"
+version = "0.3.0"
 description = "Monitor GPSD with Prometheus"
 authors = ["Mark S"]
 license = "MIT"
@@ -12,6 +12,7 @@ prometheus-client = "^0.9.0"
 gps = "^3.19"
 argparse = "^1.4.0"
 gpsd-py3 = "^0.3.0"
+bump2version = "^1.0.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.1"
