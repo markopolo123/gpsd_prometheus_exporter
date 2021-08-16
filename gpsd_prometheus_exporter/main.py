@@ -13,13 +13,6 @@ ALTITUDE = Gauge("altitude", "Current Altitude in metres")
 SAT_COUNT = Gauge("satcount", "Number of satellites")
 
 
-def gps_connect():
-    gpsd.connect()
-    # Get gps position
-    data = gpsd.get_current()
-    return data
-
-
 def get_gpsd_data(unit, packet):
     """Set Prom Metrics"""
     LONGITUDE.set(packet.lon)
@@ -88,7 +81,20 @@ def make_json():
     is_flag=True,
     help="Turns on more verbose logging, prints output [default: False]",
 )
-def main(bind, port, debug, speedunit):
+@click.option(
+    "--gpsd-host",
+    "-H",
+    type=str,
+    help="Specify gpsd host address",
+)
+@click.option(
+    "--gpsd-port",
+    "-P",
+    default=2947,
+    type=int,
+    help="Specify gpsd host port [default: 2947]",
+)
+def main(bind, port, debug, speedunit, gpsd_host, gpsd_port):
 
     logging.basicConfig(
         format="%(asctime)s.%(msecs)03d %(levelname)-8s %(message)s",
@@ -99,11 +105,19 @@ def main(bind, port, debug, speedunit):
     logging.info(f"Listening on http://{bind}:{port}")
     logging.info(f"Reporting speed in {speedunit}")
 
+
+    if not gpsd_host is None:
+        logging.info(f"GPSD Host: {gpsd_host}:{gpsd_port}")
+        gpsd.connect(host=gpsd_host, port=gpsd_port)
+    else:
+        gpsd.connect()
+
     start_http_server(addr=bind, port=port)
 
     while True:
-        data = gps_connect()
+        data = gpsd.get_current()
         get_gpsd_data(speedunit, data)
         time.sleep(1)
         if debug:
             logging.info(f"Sensor data: {make_json()}")
+

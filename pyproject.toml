@@ -7,7 +7,8 @@ license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.7"
+click = "^8.0"
 prometheus-client = "^0.9.0"
 gps = "^3.19"
 argparse = "^1.4.0"
