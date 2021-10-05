@@ -24,6 +24,8 @@ Options:
   -p, --port INTEGER  Specify alternate port [default: 8000]
   -d, --debug         Turns on more verbose logging, prints output [default:
                       False]
+  -H --gpsd-host      Specify gpsd host address
+  -P --gpsd-port      Specify gpsd host port [default: 2947]
 
   --help              Show this message and exit.
 ```
